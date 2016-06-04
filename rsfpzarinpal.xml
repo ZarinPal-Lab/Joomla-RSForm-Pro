@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>System - RSForm! Pro ZarinPal</name>
+	<author>Mohsen Ranjbar (mimrahe)</author>
+	<creationDate>May 2016</creationDate>
+	<copyright>(C) 2016-2017 www.zarinpal.com</copyright>
+	<license>GNU General Public License</license>
+	<authorEmail>mimrahe@gmail.com</authorEmail>
+	<authorUrl>www.mimrahe.com</authorUrl>
+	<version>1.51.4</version>
+	<description><![CDATA[PLG_SYSTEM_RSFPZARINPAL_DESC]]></description>
+	<scriptfile>script.php</scriptfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/mysql/install.sql</file>
+		</sql>
+	</install>
+	<files>
+		<folder>sql</folder>
+		<filename plugin="rsfpzarinpal">rsfpzarinpal.php</filename>
+		<filename>index.html</filename> 
+	</files>
+	<languages folder="language/fa-IR">
+		<language tag="fa-IR">fa-IR.plg_system_rsfpzarinpal.ini</language>
+		<language tag="fa-IR">fa-IR.plg_system_rsfpzarinpal.sys.ini</language>
+	</languages>
+</extension>
