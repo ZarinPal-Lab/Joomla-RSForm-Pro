@@ -1,7 +1,8 @@
 INSERT IGNORE INTO `#__rsform_config` (`SettingName`, `SettingValue`) VALUES
 ('zarinpal.merchantid', ''),
 ('zarinpal.gatetype', '0'),
-('zarinpal.test', '0');
+('zarinpal.test', '0'),
+('zarinpal.return', '');
 
 INSERT IGNORE INTO `#__rsform_component_types` (`ComponentTypeId`, `ComponentTypeName`) VALUES (642, 'zarinpal');
 

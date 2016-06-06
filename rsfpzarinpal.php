@@ -1,10 +1,5 @@
 <?php
 /**
-* @package RSMembership!
-* @copyright (C) 2014 www.rsjoomla.com
-* @license GPL, http://www.gnu.org/licenses/gpl-2.0.html
-*/
-/**
  * Zarinpal Payment Gateway Plugin for RSForm!Pro Component
  * PHP version 5.6+
  * @author Mohsen Ranjbar (mimrahe) <mimrahe@gmail.com>
@@ -250,6 +245,8 @@ class plgSystemRSFPZarinPal extends JPlugin
 
 			$status = $zpVerify->Status;
 			$root = JURI::root();
+			$return = RSFormProHelper::getConfig('zarinpal.return');
+            $return = empty($return) ? $root : $return;
 			$htmlStart = "<!DOCTYPE html><html><head><meta charset='utf-8' ></head><body>";
 			$htmlEnd = "</body></html>";
 
@@ -269,7 +266,7 @@ class plgSystemRSFPZarinPal extends JPlugin
 					"%s<p style='font:bold 16px tahoma; color:darkgreen; direction:rtl; text-align:center;'>پرداخت با موفقیت انجام شد<br>شماره پیگیری تراکنش:<br>%s<br><a href='%s'>برای ادامه کلیک کنید!</a></p>%s",
 					$htmlStart,
 					$RefID,
-					$root,
+					$return,
 					$htmlEnd
 				);
 
@@ -321,7 +318,14 @@ class plgSystemRSFPZarinPal extends JPlugin
 							for="gatetype"><?php echo JText::_('RSFP_ZARINPAL_GATE_TYPE'); ?></label></td>
 					<td><?php echo JHTML::_('select.booleanlist', 'rsformConfig[zarinpal.gatetype]', '', RSFormProHelper::htmlEscape(RSFormProHelper::getConfig('zarinpal.gatetype')), 'زرین گیت', 'وب گیت'); ?></td>
 				</tr>
-			</table>
+                <tr>
+                    <td width="200" style="width: 200px;" align="right" class="key"><label
+                            for="return"><?php echo JText::_('RSFP_ZARINPAL_RETURN'); ?></label></td>
+                    <td><input id="return" type="text" name="rsformConfig[zarinpal.return]"
+                               value="<?php echo RSFormProHelper::htmlEscape(RSFormProHelper::getConfig('zarinpal.return')); ?>"
+                               size="200" maxlength="500"></td>
+                </tr>
+            </table>
 		</div>
 		<?php
 
